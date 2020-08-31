@@ -1,0 +1,74 @@
+  <!DOCTYPE html>
+
+  <html class="no-js">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+    
+      <header class="header">
+        <div class="header__title">
+          BattleShips
+        </div>
+      </header>
+
+      <aside class="aside aside-1">
+        <div class="ships">
+          <div class="carrier" id="carrier" >
+            <div class="carrier__block" draggable="true"></div>
+            <div class="carrier__block" ></div>
+            <div class="carrier__block" ></div>
+            <div class="carrier__block" ></div>
+            <div class="carrier__block" ></div>
+          </div>
+          <div class="battleship" id="battleship">
+            <div class="battleship__block" draggable="true"></div>
+            <div class="battleship__block" ></div>
+            <div class="battleship__block" ></div>
+            <div class="battleship__block" ></div>
+          </div>
+          <div class="cruiser" id="cruiser"> 
+            <div class="cruiser__block" draggable="true"></div>
+            <div class="cruiser__block" ></div>
+            <div class="cruiser__block" ></div>
+          </div>
+          <div class="submarine" id="submarine">
+            <div class="submarine__block" draggable="true"></div>
+            <div class="submarine__block" ></div>
+            <div class="submarine__block" ></div>
+          </div>
+          <div class="destroyer" id="destroyer">
+            <div class="destroyer__block" draggable="true"></div>
+            <div class="destroyer__block" ></div>
+          </div>
+        </div>
+      </aside>
+
+
+    
+
+      <div class="grids">
+        <div class="grids__player-grid" id="player-grid"></div>
+        <div class="grids__computer-grid grids--opacity" id="computer-grid"></div>
+      </div>
+
+  
+      <aside class="aside aside-2" >
+        <button class="aside-2__btn" id="start" >
+          Start Game
+        </button>
+  
+        <button class="aside-2__btn" id="restart">
+          Restart
+        </button>
+      </aside>
+
+
+      <script src="bundle.js"></script>
+    </body>
+  </html>

@@ -1,0 +1,317 @@
+@import "variables";
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+}
+
+body {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color-light;
+    text-align: center;
+    flex-flow: row wrap;
+}
+
+.header {
+  background: tomato;
+  font-size: 2rem;
+  flex: 1 100%;
+  color: white;
+}
+
+
+.grids {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  margin-top:5rem;
+  flex: 2 0px;
+  
+  & > * {
+    width:  40rem;
+    height: 40rem;
+    outline: 1px solid $divider-color;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+    overflow: hidden;
+    background-color: $secondary-text-color;
+    justify-content: center;
+    align-items: center;
+
+    & > * {
+      width: 10%;
+      height: 10%;
+      border: .5px solid $divider-color;
+      z-index: 200;
+    }
+  }
+
+  &--opacity {
+    opacity: 0.4;
+  }
+
+  &__computer-grid--missedHit {
+    background-color: blue;
+  }
+
+  &__computer-grid--hit {
+    background-color: red;
+  }
+
+  &__player-grid--missedHit {
+    background-color: blue;
+  }
+
+  &__player-grid--hit {
+    background-color: red;
+  }
+
+  &--black {
+    background-color: black;
+  }
+
+}
+
+.aside{
+  flex: 1;
+  display: flex;
+}
+
+.aside-1 {
+  justify-content: center;
+}
+
+.aside-2 {
+  height: 30rem;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-start;
+  &__btn {
+    border: none;
+    background-color: tomato;
+    border-radius: 2rem;
+    font-size: 2rem;
+    padding: 2rem;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+
+.ships {
+  width: 30rem;
+  height: 40rem;
+  border: 1px solid $divider-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.carrier {
+  width: 20rem;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+
+  &>*{
+    width: 4rem;
+    z-index: 200;
+    background-color: black;
+    }
+
+  &:first-child {
+    cursor: pointer;
+  }
+
+}
+
+.carrier--column {
+  width: 4rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+
+  &>*{
+    width: 4rem;
+    height: 4rem;
+    z-index: 200;
+    background-color: black;
+    }
+
+  &:first-child {
+    cursor: pointer;
+  }
+
+}
+
+.battleship {
+  width: 16rem;
+  height: 4rem;
+  z-index: 100;
+  display: flex;
+  
+  &__block {
+    width: 4rem;
+    z-index: 200;
+    background-color: black;
+    }
+
+  &:first-child {
+    cursor: pointer;
+  }
+}
+
+
+.battleship--column {
+  width: 4rem;
+  height: 16rem;
+  display: flex;
+  flex-direction: column;
+  
+  &>*{ 
+    width: 4rem;
+    height: 4rem;
+    z-index: 200;
+    background-color: black;
+    }
+
+  &:first-child {
+    cursor: pointer;
+  }
+}
+
+
+.cruiser {
+  width: 12rem;
+  height: 4rem;
+  z-index: 100;
+  display: flex;
+
+  &__block {
+    width: 4rem;
+    height:100%;
+    z-index: 200;
+    background-color: black;
+    }
+
+  &:first-child {
+    cursor: pointer;
+  }
+}
+
+.cruiser--column {
+  width: 4rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  
+  &>*{ 
+    width: 4rem;
+    height: 4rem;
+    z-index: 200;
+    background-color: black;
+    }
+
+  &:first-child {
+    cursor: pointer;
+  }
+}
+
+
+.submarine {
+  width: 12rem;
+  height: 4rem;
+  z-index: 100;
+  display: flex;
+
+  &__block {
+    width: 4rem;
+    height:100%;
+    z-index: 200;
+    background-color: black;
+    }
+
+  &:first-child {
+    cursor: pointer;
+  }
+}
+
+.submarine--column {
+  width: 4rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  
+  &>*{ 
+    width: 4rem;
+    height: 4rem;
+    z-index: 200;
+    background-color: black;
+    }
+
+  &:first-child {
+    cursor: pointer;
+  }
+}
+
+
+.destroyer {
+  width: 8rem;
+  height: 4rem;
+  z-index: 100;
+  display: flex;
+
+
+  &__block {
+    width: 4rem;
+    height:100%;
+    z-index: 200;
+    background-color: black;
+    }
+
+  &:first-child {
+    cursor: pointer;
+  }
+}
+
+.destroyer--column {
+  width: 4rem;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  
+  &>*{ 
+    width: 4rem;
+    height: 4rem;
+    z-index: 200;
+    background-color: black;
+    }
+
+  &:first-child {
+    cursor: pointer;
+  }
+}
+
+
+

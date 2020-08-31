@@ -1,0 +1,29 @@
+{
+  "name": "webpack-demo",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^4.2.2",
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.10",
+    "sass-loader": "^10.0.1",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
+}
