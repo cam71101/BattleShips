@@ -78,8 +78,6 @@ const Render = (player1, computer, player) => {
     updateComputerFleet();
   };
 
-  // background: $gradient - top;
-
   const updateComputerFleet = () => {
     Object.entries(computer.ships).forEach((ship) => {
       if (ship[1].hit) {
@@ -219,7 +217,6 @@ const Render = (player1, computer, player) => {
       grids.appendChild(grid);
     }
 
-    // background: $gradient - top;
   };
 
   const generateCoords = () => {
@@ -358,10 +355,11 @@ const Render = (player1, computer, player) => {
             }
           }
         }
+                coords = charLetter + charNumber;
         selectedSquare = document.querySelector(
-          '.' + selectedSquare.className.substr(0, 20) + charLetter + charNumber
+          '.' + selectedSquare.className.substr(0, 20) + coords
         );
-        coords = charLetter + charNumber;
+
 
         selectedShipPlacement = predictedCoords(
           coords,

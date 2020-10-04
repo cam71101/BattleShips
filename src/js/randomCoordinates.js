@@ -43,7 +43,6 @@ const RandomCoordinates = (Gameboard) => {
       const nextRandomLetter = nextChar(randomLetter);
       surroundingCoords.push(nextRandomLetter + randomNumber);
     }
-    console.log(surroundingCoords);
     return surroundingCoords;
   };
 

@@ -20,7 +20,7 @@ html {
 
 body {
   box-sizing: border-box;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -64,6 +64,10 @@ body {
   }
 }
 
+#my-div {
+  display: block !important;
+}
+
 .main {
   display: flex;
   justify-content: center;
@@ -79,6 +83,7 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     width: 95rem;
+    position: relative;
 
     .gameboard {
       display: flex;
@@ -94,17 +99,69 @@ body {
         align-items: center;
         justify-content: center;
 
-        & > * {
+        @include respond(phone) {
+          order: 2;
+          flex-wrap: wrap;
+        }
+
+        :not(:first-child) {
+          // width: 40rem;
+          // height: 40rem;
+          // outline: 1px solid $divider-color;
+          // display: flex;
+          // flex-wrap: wrap;
+          // margin-bottom: 5rem;
+          // overflow: hidden;
+          // background: $gradient-top;
+          // justify-content: center;
+          // align-items: center;
+
+          & > * {
+            // width: 10%;
+            // height: 10%;
+            // border: 0.5px solid $divider-color;
+            // border-radius: 0.4rem;
+          }
+        }
+
+        // & > * {
+        //   width: 40rem;
+        //   height: 40rem;
+        //   outline: 1px solid $divider-color;
+        //   display: flex;
+        //   flex-wrap: wrap;
+        //   margin-bottom: 5rem;
+        //   overflow: hidden;
+        //   background: $gradient-top;
+        //   justify-content: center;
+        //   align-items: center;
+
+        //   & > * {
+        //     width: 10%;
+        //     height: 10%;
+        //     border: 0.5px solid $divider-color;
+        //     border-radius: 0.4rem;
+        //   }
+        // }
+
+        &--opacity {
+          opacity: 0.4;
+        }
+
+        &__computer-grid {
           width: 40rem;
           height: 40rem;
           outline: 1px solid $divider-color;
           display: flex;
           flex-wrap: wrap;
-          margin-bottom: 5rem;
           overflow: hidden;
           background: $gradient-top;
           justify-content: center;
           align-items: center;
+          @include respond(phone) {
+            order: 3;
+            margin-top: 2rem;
+          }
 
           & > * {
             width: 10%;
@@ -112,10 +169,43 @@ body {
             border: 0.5px solid $divider-color;
             border-radius: 0.4rem;
           }
+
+          --missedHit {
+            background-color: $primary-color-light;
+          }
+          &__--hit {
+            background-color: $red-munsell;
+          }
         }
 
-        &--opacity {
-          opacity: 0.4;
+        &__player-grid {
+          width: 40rem;
+          height: 40rem;
+          outline: 1px solid $divider-color;
+          display: flex;
+          flex-wrap: wrap;
+          overflow: hidden;
+          background: $gradient-top;
+          justify-content: center;
+          align-items: center;
+          @include respond(phone) {
+            order: 2;
+          }
+          & > * {
+            width: 10%;
+            height: 10%;
+            border: 0.5px solid $divider-color;
+            border-radius: 0.4rem;
+          }
+          &--missedHit {
+            background-color: $primary-color-light;
+          }
+          &--hit {
+            background-color: $red-munsell;
+          }
+        }
+        &--ship {
+          background-color: $primary-color;
         }
 
         &--small {
@@ -123,26 +213,9 @@ body {
           height: 20rem;
           margin-right: 5rem;
           background: $indigo-dye;
-        }
-
-        &__computer-grid--missedHit {
-          background-color: $primary-color-light;
-        }
-
-        &__computer-grid--hit {
-          background-color: $red-munsell;
-        }
-
-        &__player-grid--missedHit {
-          background-color: $primary-color-light;
-        }
-
-        &__player-grid--hit {
-          background-color: $red-munsell;
-        }
-
-        &--ship {
-          background-color: $primary-color;
+          @include respond(phone) {
+            margin-right: 0;
+          }
         }
       }
     }
@@ -154,6 +227,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-content: center;
+  margin-top: 5rem;
   &__btn {
     border: none;
     background-color: $indigo-dye;
@@ -173,20 +247,24 @@ body {
     }
   }
   @include respond(phone) {
-    margin-top: -3rem;
+    margin-top: 2rem;
   }
 }
 
 .computer-fleet {
-  height: 30rem;
+  height: 18rem;
   width: 20rem;
   border: 0.6rem solid $indigo-dye;
   margin-left: 5rem;
   display: none;
   border-radius: 1rem;
-
   align-items: center;
   flex-direction: column;
+
+  @include respond(phone) {
+    order: 1;
+    margin-left: 0;
+  }
 
   &__text {
     font-size: 2rem;
@@ -265,6 +343,9 @@ body {
 
 .shake {
   animation: shake 1s;
+  @include respond(phone) {
+    animation: none;
+  }
 }
 
 .battleship {
