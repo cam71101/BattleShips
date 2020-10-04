@@ -1,74 +1,129 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 
-  <html class="no-js">
-    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title></title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <img class="header__logo" src="logo.png" />
+    </header>
 
-    </head>
-    <body>
-    
-      <header class="header">
-        <div class="header__title">
-          BattleShips
+    <main class="main">
+      <div class="main-container">
+        <div class="instructions">
+          <span class="instructions--desktop"
+            >Drag and drop your ships. Double click to rotate.</span
+          >
+          <span class="instructions--mobile"
+            >Please press 'Auto-Place' to deploy your ships.</span
+          >
         </div>
-      </header>
 
-      <aside class="aside aside-1">
-        <div class="ships">
-          <div class="carrier" id="carrier" >
-            <div class="carrier__block" draggable="true"></div>
-            <div class="carrier__block" ></div>
-            <div class="carrier__block" ></div>
-            <div class="carrier__block" ></div>
-            <div class="carrier__block" ></div>
+        <div class="gameboard">
+          <div class="ships">
+            <div class="carrier" id="carrier">
+              <div class="carrier__block" draggable="true"></div>
+              <div class="carrier__block"></div>
+              <div class="carrier__block"></div>
+              <div class="carrier__block"></div>
+              <div class="carrier__block"></div>
+            </div>
+            <div class="battleship" id="battleship">
+              <div class="battleship__block" draggable="true"></div>
+              <div class="battleship__block"></div>
+              <div class="battleship__block"></div>
+              <div class="battleship__block"></div>
+            </div>
+            <div class="cruiser" id="cruiser">
+              <div class="cruiser__block" draggable="true"></div>
+              <div class="cruiser__block"></div>
+              <div class="cruiser__block"></div>
+            </div>
+            <div class="submarine" id="submarine">
+              <div class="submarine__block" draggable="true"></div>
+              <div class="submarine__block"></div>
+              <div class="submarine__block"></div>
+            </div>
+            <div class="destroyer" id="destroyer">
+              <div class="destroyer__block" draggable="true"></div>
+              <div class="destroyer__block"></div>
+            </div>
           </div>
-          <div class="battleship" id="battleship">
-            <div class="battleship__block" draggable="true"></div>
-            <div class="battleship__block" ></div>
-            <div class="battleship__block" ></div>
-            <div class="battleship__block" ></div>
+          <div class="grids">
+            <div class="grids__player-grid" id="player-grid"></div>
+            <div
+              class="grids__computer-grid"
+              id="computer-grid"
+              style="display: none"
+            ></div>
           </div>
-          <div class="cruiser" id="cruiser"> 
-            <div class="cruiser__block" draggable="true"></div>
-            <div class="cruiser__block" ></div>
-            <div class="cruiser__block" ></div>
-          </div>
-          <div class="submarine" id="submarine">
-            <div class="submarine__block" draggable="true"></div>
-            <div class="submarine__block" ></div>
-            <div class="submarine__block" ></div>
-          </div>
-          <div class="destroyer" id="destroyer">
-            <div class="destroyer__block" draggable="true"></div>
-            <div class="destroyer__block" ></div>
+          <div class="computer-fleet">
+            <div class="computer-fleet__text">Enemy Fleet</div>
+            <div class="computer-fleet__container">
+              <div
+                class="computer-fleet__container__ship"
+                id="computer-carrier"
+              >
+                <div class="computer-fleet__container__ship--block"></div>
+                <div class="computer-fleet__container__ship--block"></div>
+                <div class="computer-fleet__container__ship--block"></div>
+                <div class="computer-fleet__container__ship--block"></div>
+                <div class="computer-fleet__container__ship--block"></div>
+              </div>
+              <div
+                class="computer-fleet__container__ship"
+                id="computer-battleship"
+              >
+                <div class="computer-fleet__container__ship--block"></div>
+                <div class="computer-fleet__container__ship--block"></div>
+                <div class="computer-fleet__container__ship--block"></div>
+                <div class="computer-fleet__container__ship--block"></div>
+              </div>
+              <div
+                class="computer-fleet__container__ship"
+                id="computer-cruiser"
+              >
+                <div class="computer-fleet__container__ship--block"></div>
+                <div class="computer-fleet__container__ship--block"></div>
+                <div class="computer-fleet__container__ship--block"></div>
+              </div>
+              <div
+                class="computer-fleet__container__ship"
+                id="computer-submarine"
+              >
+                <div class="computer-fleet__container__ship--block"></div>
+                <div class="computer-fleet__container__ship--block"></div>
+                <div class="computer-fleet__container__ship--block"></div>
+              </div>
+              <div
+                class="computer-fleet__container__ship"
+                id="computer-destroyer"
+              >
+                <div class="computer-fleet__container__ship--block"></div>
+                <div class="computer-fleet__container__ship--block"></div>
+              </div>
+            </div>
           </div>
         </div>
-      </aside>
 
-
-    
-
-      <div class="grids">
-        <div class="grids__player-grid" id="player-grid"></div>
-        <div class="grids__computer-grid grids--opacity" id="computer-grid"></div>
+        <div class="buttons">
+          <button class="buttons__btn" id="start">Start Game</button>
+          <button class="buttons__btn" id="restart">Restart</button>
+          <button class="buttons__btn" id="autoPlaceBtn">Auto-Place</button>
+        </div>
       </div>
+    </main>
 
-  
-      <aside class="aside aside-2" >
-        <button class="aside-2__btn" id="start" >
-          Start Game
-        </button>
-  
-        <button class="aside-2__btn" id="restart">
-          Restart
-        </button>
-      </aside>
-
-
-      <script src="bundle.js"></script>
-    </body>
-  </html>
+    <script src="bundle.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js"></script>
+  </body>
+</html>

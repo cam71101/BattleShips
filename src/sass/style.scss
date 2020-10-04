@@ -1,113 +1,170 @@
-@import "variables";
+@import 'variables';
 
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-    // This defines what 1rem is
-    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+  font-size: 62.5%;
+  margin: 0px;
+  width: 100%;
+
+  @include respond(phone) {
+    font-size: 56.25%;
+  }
 }
 
 body {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $primary-color-light;
-    text-align: center;
-    flex-flow: row wrap;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto';
 }
 
 .header {
-  background: tomato;
-  font-size: 2rem;
-  flex: 1 100%;
-  color: white;
-}
-
-
-.grids {
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  flex-direction: column-reverse;
-  margin-top:5rem;
-  flex: 2 0px;
-  
-  & > * {
-    width:  40rem;
-    height: 40rem;
-    outline: 1px solid $divider-color;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 5rem;
-    overflow: hidden;
-    background-color: $secondary-text-color;
-    justify-content: center;
-    align-items: center;
 
-    & > * {
-      width: 10%;
-      height: 10%;
-      border: .5px solid $divider-color;
-      z-index: 200;
+  &__logo {
+    @include respond(tab-land) {
+      width: 15rem;
     }
   }
 
-  &--opacity {
-    opacity: 0.4;
+  @include respond(tab-land) {
+    height: 12rem;
   }
-
-  &__computer-grid--missedHit {
-    background-color: blue;
-  }
-
-  &__computer-grid--hit {
-    background-color: red;
-  }
-
-  &__player-grid--missedHit {
-    background-color: blue;
-  }
-
-  &__player-grid--hit {
-    background-color: red;
-  }
-
-  &--black {
-    background-color: black;
-  }
-
 }
 
-.aside{
+.instructions {
+  text-align: center;
+  font-size: large;
+  font-weight: 500;
+  margin: 2rem;
+
+  &--mobile {
+    display: none;
+    @include respond(tab-land) {
+      display: inline;
+    }
+  }
+  &--desktop {
+    @include respond(tab-land) {
+      display: none;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+
+  .main-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 95rem;
+
+    .gameboard {
+      display: flex;
+
+      @include respond(phone) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grids {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & > * {
+          width: 40rem;
+          height: 40rem;
+          outline: 1px solid $divider-color;
+          display: flex;
+          flex-wrap: wrap;
+          margin-bottom: 5rem;
+          overflow: hidden;
+          background: $gradient-top;
+          justify-content: center;
+          align-items: center;
+
+          & > * {
+            width: 10%;
+            height: 10%;
+            border: 0.5px solid $divider-color;
+            border-radius: 0.4rem;
+          }
+        }
+
+        &--opacity {
+          opacity: 0.4;
+        }
+
+        &--small {
+          width: 20rem;
+          height: 20rem;
+          margin-right: 5rem;
+          background: $indigo-dye;
+        }
+
+        &__computer-grid--missedHit {
+          background-color: $primary-color-light;
+        }
+
+        &__computer-grid--hit {
+          background-color: $red-munsell;
+        }
+
+        &__player-grid--missedHit {
+          background-color: $primary-color-light;
+        }
+
+        &__player-grid--hit {
+          background-color: $red-munsell;
+        }
+
+        &--ship {
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+.buttons {
   flex: 1;
   display: flex;
-}
-
-.aside-1 {
-  justify-content: center;
-}
-
-.aside-2 {
-  height: 30rem;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-evenly;
+  align-content: center;
   &__btn {
     border: none;
-    background-color: tomato;
+    background-color: $indigo-dye;
     border-radius: 2rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
     padding: 2rem;
     color: white;
     text-decoration: none;
     cursor: pointer;
-  
+
     &:focus {
       outline: none;
     }
@@ -115,17 +172,66 @@ body {
       color: black;
     }
   }
+  @include respond(phone) {
+    margin-top: -3rem;
+  }
 }
 
+.computer-fleet {
+  height: 30rem;
+  width: 20rem;
+  border: 0.6rem solid $indigo-dye;
+  margin-left: 5rem;
+  display: none;
+  border-radius: 1rem;
+
+  align-items: center;
+  flex-direction: column;
+
+  &__text {
+    font-size: 2rem;
+    margin-top: 2rem;
+    font-weight: 500;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 80%;
+    height: 80%;
+
+    &__ship {
+      display: flex;
+
+      &--block {
+        color: black;
+        width: 2em;
+        height: 1rem;
+        border: 0.5px solid black;
+        margin: 0.5rem;
+      }
+    }
+  }
+}
 
 .ships {
   width: 30rem;
   height: 40rem;
-  border: 1px solid $divider-color;
+  border: 2px solid $indigo-dye;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  border-radius: 4rem;
+  margin-right: 3rem;
+  @include respond(phone) {
+    width: 95%;
+    height: 15rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
 }
 
 .carrier {
@@ -134,184 +240,178 @@ body {
   display: flex;
   flex-direction: row;
 
-  &>*{
-    width: 4rem;
-    z-index: 200;
-    background-color: black;
-    }
+  & > * {
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color;
+    border: 0.1rem solid $platinum;
+    border-radius: 0.4rem;
+  }
 
-  &:first-child {
+  :first-child {
     cursor: pointer;
   }
 
+  &--column {
+    width: 3.9rem;
+    height: 20rem;
+    flex-direction: column;
+
+    & > * {
+      height: 4rem;
+    }
+  }
 }
 
-.carrier--column {
-  width: 4rem;
-  height: 20rem;
-  display: flex;
-  flex-direction: column;
-
-  &>*{
-    width: 4rem;
-    height: 4rem;
-    z-index: 200;
-    background-color: black;
-    }
-
-  &:first-child {
-    cursor: pointer;
-  }
-
+.shake {
+  animation: shake 1s;
 }
 
 .battleship {
   width: 16rem;
   height: 4rem;
-  z-index: 100;
   display: flex;
-  
+
   &__block {
-    width: 4rem;
-    z-index: 200;
-    background-color: black;
-    }
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color;
+    border: 0.1rem solid $platinum;
+    border-radius: 0.5rem;
+  }
 
-  &:first-child {
+  :first-child {
     cursor: pointer;
   }
-}
 
-
-.battleship--column {
-  width: 4rem;
-  height: 16rem;
-  display: flex;
-  flex-direction: column;
-  
-  &>*{ 
+  &--column {
     width: 4rem;
-    height: 4rem;
-    z-index: 200;
-    background-color: black;
+    height: 16rem;
+    flex-direction: column;
+
+    & > * {
+      height: 4rem;
     }
-
-  &:first-child {
-    cursor: pointer;
   }
-}
 
+  //
+}
 
 .cruiser {
   width: 12rem;
   height: 4rem;
-  z-index: 100;
   display: flex;
 
   &__block {
-    width: 4rem;
-    height:100%;
-    z-index: 200;
-    background-color: black;
-    }
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color;
+    border: 0.1rem solid $platinum;
+    border-radius: 0.5rem;
+  }
 
-  &:first-child {
+  :first-child {
     cursor: pointer;
   }
-}
 
-.cruiser--column {
-  width: 4rem;
-  height: 12rem;
-  display: flex;
-  flex-direction: column;
-  
-  &>*{ 
+  &--column {
     width: 4rem;
-    height: 4rem;
-    z-index: 200;
-    background-color: black;
-    }
+    height: 12rem;
+    flex-direction: column;
 
-  &:first-child {
-    cursor: pointer;
+    & > * {
+      height: 4rem;
+    }
   }
 }
-
 
 .submarine {
   width: 12rem;
   height: 4rem;
-  z-index: 100;
   display: flex;
 
   &__block {
-    width: 4rem;
-    height:100%;
-    z-index: 200;
-    background-color: black;
-    }
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color;
+    border: 0.1rem solid $platinum;
+    border-radius: 0.5rem;
+  }
 
-  &:first-child {
+  :first-child {
     cursor: pointer;
   }
-}
-
-.submarine--column {
-  width: 4rem;
-  height: 12rem;
-  display: flex;
-  flex-direction: column;
-  
-  &>*{ 
+  &--column {
     width: 4rem;
-    height: 4rem;
-    z-index: 200;
-    background-color: black;
-    }
+    height: 12rem;
+    flex-direction: column;
 
-  &:first-child {
-    cursor: pointer;
+    & > * {
+      width: 4rem;
+    }
   }
 }
-
 
 .destroyer {
   width: 8rem;
   height: 4rem;
-  z-index: 100;
   display: flex;
-
 
   &__block {
-    width: 4rem;
-    height:100%;
-    z-index: 200;
-    background-color: black;
-    }
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color;
+    border: 0.1rem solid $platinum;
+    border-radius: 0.5rem;
+  }
 
-  &:first-child {
+  :first-child {
     cursor: pointer;
+  }
+
+  &--column {
+    width: 4rem;
+    height: 8rem;
+    flex-direction: column;
+
+    & > * {
+      height: 4rem;
+    }
   }
 }
 
-.destroyer--column {
-  width: 4rem;
-  height: 8rem;
-  display: flex;
-  flex-direction: column;
-  
-  &>*{ 
-    width: 4rem;
-    height: 4rem;
-    z-index: 200;
-    background-color: black;
-    }
-
-  &:first-child {
-    cursor: pointer;
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-1deg);
+  }
+  20% {
+    transform: rotate(15deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(1deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  60% {
+    transform: rotate(15deg);
+  }
+  70% {
+    transform: rotate(-15deg);
+  }
+  80% {
+    transform: rotate(1deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-1deg);
   }
 }
-
-
-

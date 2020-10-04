@@ -1,8 +1,101 @@
-$primary-color-dark:   #616161;
-$primary-color:        #9E9E9E;
-$primary-color-light:  #F5F5F5;
-$primary-color-text:   #212121;
-$accent-color:         #607D8B;
-$primary-text-color:   #212121;
+$primary-color-dark: #616161;
+$primary-color: #9e9e9e;
+$primary-color-light: #f5f5f5;
+$primary-color-text: #212121;
+$accent-color: #607d8b;
+$primary-text-color: #212121;
 $secondary-text-color: #757575;
-$divider-color:        #BDBDBD;
+$divider-color: #bdbdbd;
+
+/* SCSS HEX */
+$indigo-dye: #033f63ff;
+$cerulean-crayola: #05b2dcff;
+$desert-sand: #59c07b;
+$red-munsell: #ea3546ff;
+$platinum: #ebe9e9ff;
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #033f63ff, #05b2dcff);
+$gradient-right: linear-gradient(
+  90deg,
+  #033f63ff,
+  #05b2dcff,
+  #d8bfaaff,
+  #ea3546ff,
+  #ebe9e9ff
+);
+$gradient-bottom: linear-gradient(
+  180deg,
+  #033f63ff,
+  #05b2dcff,
+  #d8bfaaff,
+  #ea3546ff,
+  #ebe9e9ff
+);
+$gradient-left: linear-gradient(
+  270deg,
+  #033f63ff,
+  #05b2dcff,
+  #d8bfaaff,
+  #ea3546ff,
+  #ebe9e9ff
+);
+$gradient-top-right: linear-gradient(
+  45deg,
+  #033f63ff,
+  #05b2dcff,
+  #d8bfaaff,
+  #ea3546ff,
+  #ebe9e9ff
+);
+$gradient-bottom-right: linear-gradient(
+  135deg,
+  #033f63ff,
+  #05b2dcff,
+  #d8bfaaff,
+  #ea3546ff,
+  #ebe9e9ff
+);
+$gradient-top-left: linear-gradient(
+  225deg,
+  #033f63ff,
+  #05b2dcff,
+  #d8bfaaff,
+  #ea3546ff,
+  #ebe9e9ff
+);
+$gradient-bottom-left: linear-gradient(
+  315deg,
+  #033f63ff,
+  #05b2dcff,
+  #d8bfaaff,
+  #ea3546ff,
+  #ebe9e9ff
+);
+$gradient-radial: radial-gradient(
+  #033f63ff,
+  #05b2dcff,
+  #d8bfaaff,
+  #ea3546ff,
+  #ebe9e9ff
+);
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 100em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}

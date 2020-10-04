@@ -1,15 +1,32 @@
-const { Gameboard } = require('./gameboard')
+import Gameboard from './gameboard';
+import Player from './player';
+import Ship from './ship';
+import Render from './render';
+import RandomShipPlacement from './randomShipPlacement';
+import RandomCoordinates from './randomCoordinates';
+import { pipe } from 'ramda';
 
+const Game = (function () {
+  const player1 = pipe(
+    Ship,
+    RandomShipPlacement,
+    Gameboard,
+    RandomCoordinates
+  )();
 
-const Game = (function() {
+  const computer = pipe(Ship, RandomShipPlacement, Gameboard)();
 
-  const startBtn = document.querySelector("#start");
-  const restartBtn = document.querySelector('#restart')
+  computer.generateRandomCoordinates();
 
-  startBtn.addEventListener("click", Gameboard.startGame);
-  restartBtn.addEventListener("click", Gameboard.restartGame);
+  const player = Player(player1, computer);
 
-  Gameboard.init()
+  const render = Render(player1, computer, player);
 
-    
-})()
+  const startBtn = document.querySelector('#start');
+  const restartBtn = document.querySelector('#restart');
+  const autoPlaceBtn = document.querySelector('#autoPlaceBtn');
+
+  startBtn.addEventListener('click', render.startGame);
+  restartBtn.addEventListener('click', render.restartGame);
+  autoPlaceBtn.addEventListener('click', render.autoPlace);
+})();

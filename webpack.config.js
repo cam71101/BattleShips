@@ -1,25 +1,25 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  mode: "development",
-  entry: "./src/js/index.js",
+  mode: 'development',
+  entry: './src/js/index.js',
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
   devServer: {
-    contentBase: "./dist",
+    contentBase: './dist',
   },
   module: {
     rules: [
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
       },
     ],
   },
