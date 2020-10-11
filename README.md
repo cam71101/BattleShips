@@ -22,9 +22,9 @@ npm run test
 
 ## Pictures
 
-![preview](https://github.com/julio22b/battleship/blob/master/dist/img/start-screen2.png)
+![preview](https://github.com/cam71101/portfolio/blob/main/src/assets/BattleShips_ScreeGrab_Desktop_Cropped.png)
 
-In this project I practised **Test Driven Development** using **Jest** and **Object Oriented Programming**. The goal was to create the main Factory Functions and test their proper functionality. It was built with **HTML, CSS and Javascript**. 
+In this project I practised **Test Driven Development** using **Jest** and **Object Oriented Programming**. The goal was to create the main Factory Functions and test their proper functionality. It was built with **HTML, CSS and Javascript**.
 
 It can be played against the computer or a friend (best on mobile).
 
@@ -37,4 +37,5 @@ By click **'2 players'** the first player is asked to place their ships, when fi
 <img src="https://github.com/julio22b/battleship/blob/master/dist/img/preview-2-players.gif" height="540px">
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
