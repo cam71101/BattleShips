@@ -24,7 +24,7 @@ npm run test
 
 ![preview](https://github.com/cam71101/portfolio/blob/main/src/assets/BattleShips_ScreeGrab_Desktop_Cropped.png)
 
-In this project, I practised **Test Driven Development** using **Jest** and **Object Oriented Programming**. The goal was to create the main Factory Functions and test its proper functionality. It was built with **HTML, CSS and Javascript**.
+In this project, I practised **Test Driven Development** using **Jest** and **Object Oriented Programming**. The goal was to create the main Factory Functions and test its proper functionality. It was built with **HTML, SASS and Javascript**.
 
 I used Test Driven Development with my factory functions (the ships, player and gameboard). This proved to be extremely useful - although the production of the entire app may have been slightly slower. There were fewer bugs and the bugs that remained were generally easy to fix since the tests had allowed me to remove any outstanding ones.
 
