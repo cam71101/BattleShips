@@ -8,6 +8,11 @@ const Render = (player1, computer, player) => {
     bindEvents();
   };
 
+  const clearData = () => {
+    player1Coords.length = 0;
+    computerCoords.length = 0;
+  };
+
   // DOM Selectors
   const shipContainer = document.querySelector('.ships');
   const playerGridSquares = document.querySelector('.grids__player-grid')
@@ -216,7 +221,6 @@ const Render = (player1, computer, player) => {
     } else {
       grids.appendChild(grid);
     }
-
   };
 
   const generateCoords = () => {
@@ -355,11 +359,10 @@ const Render = (player1, computer, player) => {
             }
           }
         }
-                coords = charLetter + charNumber;
+        coords = charLetter + charNumber;
         selectedSquare = document.querySelector(
           '.' + selectedSquare.className.substr(0, 20) + coords
         );
-
 
         selectedShipPlacement = predictedCoords(
           coords,
@@ -384,7 +387,12 @@ const Render = (player1, computer, player) => {
       if (pathName === 'grids__player-grid') {
         leadShip.addEventListener('dblclick', rotateShip);
         leadShip.classList.add('shake');
-        player1.addPlayerShipCoords(selectedShip, select);
+        player1.addPlayerShipCoords(
+          selectedShip.id,
+          select.className.substr(21, 22),
+          select.className.charAt(20),
+          selectedShip.className
+        );
         selectedShip.childNodes.forEach((square) => {
           if (!square.data) {
             square.style.border = 'none';
@@ -541,6 +549,7 @@ const Render = (player1, computer, player) => {
     restartGame,
     attackFromPlayer,
     autoPlace,
+    clearData,
   };
 };
 

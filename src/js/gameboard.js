@@ -57,6 +57,17 @@ const Gameboard = (ship) => {
     }
   };
 
+  ////// FOR TESTING ////////
+  const placeShip = (selctedShip, coordinates) => {
+    ship.ships[selctedShip].placement = coordinates;
+  };
+
+  const clearCoords = () => {
+    coords.length = 0;
+  };
+
+  ////// FOR TESTING ////////
+
   return {
     coords,
     isGameFinished,
@@ -65,6 +76,8 @@ const Gameboard = (ship) => {
     getShipPlacementArray,
     isHit,
     ...ship,
+    clearCoords,
+    placeShip,
   };
 };
 

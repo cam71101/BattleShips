@@ -52,15 +52,18 @@ const Ship = () => {
     });
   };
 
-  const addPlayerShipCoords = (selectedShip, value) => {
-    const shipLength = ships[selectedShip.id].length + 1;
-    const shipPlacement = ships[selectedShip.id].placement;
+  const addPlayerShipCoords = (
+    selectedShip,
+    nextNumber,
+    nextCharLetter,
+    selectedShipName
+  ) => {
+    const shipLength = ships[selectedShip].length + 1;
+    const shipPlacement = ships[selectedShip].placement;
     shipPlacement.length = 0;
-    let nextNumber = value.className.substr(21, 22);
-    let nextCharLetter = value.className.charAt(20);
     let coords = nextCharLetter + nextNumber;
 
-    if (selectedShip.className.includes('column')) {
+    if (selectedShipName.includes('column')) {
       for (let i = 0; i < shipLength; i++) {
         shipPlacement.push(coords);
         nextCharLetter = nextChar(nextCharLetter);
@@ -77,7 +80,9 @@ const Ship = () => {
 
   const clearShipPlacement = () => {
     Object.values(ships).forEach((e) => {
-      return (e.placement.length = 0);
+      e.placement.length = 0;
+      e.hit = 0;
+      e.sunk = false;
     });
   };
 
