@@ -24,18 +24,17 @@ npm run test
 
 ![preview](https://github.com/cam71101/portfolio/blob/main/src/assets/BattleShips_ScreeGrab_Desktop_Cropped.png)
 
-In this project I practised **Test Driven Development** using **Jest** and **Object Oriented Programming**. The goal was to create the main Factory Functions and test their proper functionality. It was built with **HTML, CSS and Javascript**.
+In this project, I practised **Test Driven Development** using **Jest** and **Object Oriented Programming**. The goal was to create the main Factory Functions and test its proper functionality. It was built with **HTML, CSS and Javascript**.
 
-It can be played against the computer or a friend (best on mobile).
+I used Test Driven Development with my factory functions (the ships, player and gameboard). This proved to be extremely useful - although the production of the entire app may have been slightly slower. There were fewer bugs and the bugs that remained were generally easy to fix since the tests had allowed me to remove any outstanding ones.
 
-By clicking **'1 player'** the user is taken to a ship placement screen where they can click on a cell or type a coordinate to place the specified ship.
+## Things I learnt throughout the project
 
-![preview](https://github.com/julio22b/battleship/blob/master/dist/img/preview-one-player.gif)
+1. Test-Driven Development
+   Since this was my first time trying out TDD, it wasn't the most efficient process. However, after some time, I began to realise how important and useful it is. Instead of simply creating and debugging, I had to think about how the app would work, what should the functions return, how to test the different functions and how to implement them.
 
-By click **'2 players'** the first player is asked to place their ships, when finished the first player's gameboard will be hidden and the second player will be asked to place their ships. The first player starts the game and a screen that covers both gameboards and says who goes next is displayed, at which moment the player passes the device to the corresponding player.
+2. Pipe function
+   Using pipe is a powerful way to write procedural code and chain functions together. Using a pipe function helped me to write simpler code whilst also making the code more declarative and easy to update.
 
-<img src="https://github.com/julio22b/battleship/blob/master/dist/img/preview-2-players.gif" height="540px">
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+3. HTML Drag and Drop API
+   I spent a lot of time experimenting with this API - with two small side-projects. I created a simple implementation of dragging icons onto their correct corresponding containers. I then created a prototype version of how the Drag and Drop API would work with a grid system and dragging containers onto the grid. This tutorial proved to be really useful for understanding how to use the API methods. Finally, I implemented the drag and drop functionality into the project, which wasn't a seamless process but eventually it worked out.
