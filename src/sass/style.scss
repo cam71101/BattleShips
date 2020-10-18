@@ -121,6 +121,8 @@ body {
           @include respond(phone) {
             order: 3;
             margin-top: 2rem;
+            width: 30rem;
+            height: 30rem;
           }
 
           & > * {
@@ -150,6 +152,8 @@ body {
           align-items: center;
           @include respond(phone) {
             order: 1;
+            width: 30rem;
+            height: 30rem;
           }
           & > * {
             width: 10%;
@@ -175,6 +179,8 @@ body {
           background: $indigo-dye;
           @include respond(phone) {
             margin-right: 0;
+            width: 17rem;
+            height: 17rem;
           }
         }
       }
@@ -224,7 +230,7 @@ body {
 
   @include respond(phone) {
     order: 2;
-    margin-left: 0;
+    margin-left: 1rem;
   }
 
   &__text {
@@ -266,7 +272,7 @@ body {
   margin-right: 3rem;
   @include respond(phone) {
     width: 95%;
-    height: 15rem;
+    height: 10rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
     margin-right: 0;
@@ -299,6 +305,10 @@ body {
     & > * {
       height: 4rem;
     }
+  }
+  @include respond(phone) {
+    width: 15rem;
+    height: 3rem;
   }
 }
 
@@ -335,6 +345,10 @@ body {
       height: 4rem;
     }
   }
+  @include respond(phone) {
+    width: 12rem;
+    height: 3rem;
+  }
 
   //
 }
@@ -365,6 +379,10 @@ body {
       height: 4rem;
     }
   }
+  @include respond(phone) {
+    width: 9rem;
+    height: 3rem;
+  }
 }
 
 .submarine {
@@ -391,6 +409,10 @@ body {
     & > * {
       width: 4rem;
     }
+  }
+  @include respond(phone) {
+    width: 9rem;
+    height: 3rem;
   }
 }
 
@@ -419,6 +441,10 @@ body {
     & > * {
       height: 4rem;
     }
+  }
+  @include respond(phone) {
+    width: 6rem;
+    height: 3rem;
   }
 }
 
