@@ -285,6 +285,11 @@ body {
   display: flex;
   flex-direction: row;
 
+  @include respond(phone) {
+    width: 15rem;
+    height: 3rem;
+  }
+
   & > * {
     width: 100%;
     height: 100%;
@@ -305,10 +310,10 @@ body {
     & > * {
       height: 4rem;
     }
-  }
-  @include respond(phone) {
-    width: 15rem;
-    height: 3rem;
+    @include respond(phone) {
+      width: 3rem;
+      height: 15rem;
+    }
   }
 }
 
@@ -323,6 +328,11 @@ body {
   width: 16rem;
   height: 4rem;
   display: flex;
+
+  @include respond(phone) {
+    width: 12rem;
+    height: 3rem;
+  }
 
   &__block {
     width: 100%;
@@ -344,19 +354,22 @@ body {
     & > * {
       height: 4rem;
     }
+    @include respond(phone) {
+      width: 3rem;
+      height: 12rem;
+    }
   }
-  @include respond(phone) {
-    width: 12rem;
-    height: 3rem;
-  }
-
-  //
 }
 
 .cruiser {
   width: 12rem;
   height: 4rem;
   display: flex;
+
+  @include respond(phone) {
+    width: 9rem;
+    height: 3rem;
+  }
 
   &__block {
     width: 100%;
@@ -378,10 +391,10 @@ body {
     & > * {
       height: 4rem;
     }
-  }
-  @include respond(phone) {
-    width: 9rem;
-    height: 3rem;
+    @include respond(phone) {
+      width: 3rem;
+      height: 9rem;
+    }
   }
 }
 
@@ -389,6 +402,11 @@ body {
   width: 12rem;
   height: 4rem;
   display: flex;
+
+  @include respond(phone) {
+    width: 9rem;
+    height: 3rem;
+  }
 
   &__block {
     width: 100%;
@@ -407,12 +425,13 @@ body {
     flex-direction: column;
 
     & > * {
-      width: 4rem;
+      height: 4rem;
     }
-  }
-  @include respond(phone) {
-    width: 9rem;
-    height: 3rem;
+
+    @include respond(phone) {
+      width: 3rem;
+      height: 9rem;
+    }
   }
 }
 
@@ -420,6 +439,11 @@ body {
   width: 8rem;
   height: 4rem;
   display: flex;
+
+  @include respond(phone) {
+    width: 6rem;
+    height: 3rem;
+  }
 
   &__block {
     width: 100%;
@@ -441,10 +465,11 @@ body {
     & > * {
       height: 4rem;
     }
-  }
-  @include respond(phone) {
-    width: 6rem;
-    height: 3rem;
+
+    @include respond(phone) {
+      width: 3rem;
+      height: 6rem;
+    }
   }
 }
 
