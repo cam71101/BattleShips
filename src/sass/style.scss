@@ -43,6 +43,9 @@ body {
   @include respond(tab-land) {
     height: 12rem;
   }
+  @include respond(phone) {
+    margin-bottom: -2.5rem;
+  }
 }
 
 .instructions {

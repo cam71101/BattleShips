@@ -1,8 +1,24 @@
-# Battleship
+<p align="center">
+  <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608670264/logoCropped_60360d1e53.png">
+</p>
 
-## Demo
+<p align="center">
+<img src="https://img.shields.io/badge/madeby-cam71101-green" />
+<img src="https://img.shields.io/github/languages/top/cam71101/weather-app" />
+<img src="https://img.shields.io/github/last-commit/cam71101/weather-app" />
+<a href="https://twitter.com/d_fisherWebDev" alt="twitter">
+<img src="https://img.shields.io/twitter/follow/d_fisherWebDev?style=social" />
+</a>
+<img src="https://img.shields.io/badge/react-17.0.1-green" />
+</p>
 
-https://cam71101.github.io/BattleShips/
+<h2 align="center"><a  href="https://cam71101.github.io/weather-app/">Live Demo</a></h2>
+
+## Description
+
+<p align="center">
+<img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608669853/BattleShipsDesktop_3268476fcf.gif" />
+</p>
 
 ## Installation
 
