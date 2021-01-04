@@ -9,7 +9,6 @@
 <a href="https://twitter.com/d_fisherWebDev" alt="twitter">
 <img src="https://img.shields.io/twitter/follow/d_fisherWebDev?style=social" />
 </a>
-<img src="https://img.shields.io/badge/react-17.0.1-green" />
 </p>
 
 <h2 align="center"><a  href="https://cam71101.github.io/weather-app/">Live Demo</a></h2>
