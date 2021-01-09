@@ -19,9 +19,11 @@
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608669853/BattleShipsDesktop_3268476fcf.gif" />
 </p>
 
-In this project, I practised **Test Driven Development** using **Jest** and **Object Oriented Programming**. The goal was to create the main Factory Functions and test functionality. It was built with **HTML, SASS and Javascript**.
+<h2 align="center"><a  href="https://d-fisher.com/battleships">CLICK HERE FOR FULL PROJECT BREAKDOWN</a></h2>
 
-I used Test Driven Development with my factory functions (the ships, player and gameboard). There were fewer bugs, and the bugs that remained were generally easy to fix since the tests had allowed me to remove any outstanding ones.
+This project is a recreation of the famous Battle Ships board game.
+
+Drag and drop your ships, double click to rotate and get ready for battle!
 
 ## How to play
 
@@ -30,15 +32,96 @@ I used Test Driven Development with my factory functions (the ships, player and 
 - Once the game start, click on the squares to attack the enemy ships.
 - Winner is the first one to sink all of the enemies ships
 
+## Tecnologies Used
+
+- Javascript ES6
+- HTML
+- CSS
+
+## Main Features
+
+> Drag and drop
+
+> Double click to rotate ships
+
+> Random auto-place for mobile
+
+> Smart AI
+
 ## Technical details
 
-### 1. Test-Driven Development
+A snippet of code that's used for generating random coordinates for the AI. Full script <a href="https://github.com/cam71101/BattleShips/blob/master/src/js/randomShipPlacement.js"> here </a>.
 
-Since this was my first time trying out TDD, it wasn't the most efficient process. However, after some time, I began to realise how important and useful it is. Instead of merely creating and debugging, I had to think about how the app would work whilst implement different tests.
+```javascript
+const makeCoordinates = (shipLength) => {
+    let randomNumber = generaterRandomNumber();
+    let randomLetter = generateRandomLetter();
 
-### 2. Pipe function
+    let newCoords = [randomLetter + randomNumber];
+    const randomChoice = Math.random() < 0.5 ? 'letter' : 'number';
 
-Using pipe is a powerful way to write procedural code and chain functions together. Using a pipe function helped me write simpler code whilst also making the code more declarative and easy to update.
+    if (randomChoice === 'number') {
+      newCoords.length = 0;
+      let number = randomNumber;
+      for (let i = 0; i < shipLength + 1; i++) {
+        randomNumber < 6 ? ++number : --number;
+        newCoords.push(number);
+      }
+      newCoords.sort((a, b) => a - b);
+      newCoords = newCoords.map((value) => {
+        return randomLetter + value;
+      });
+    } else {
+      let letter = randomLetter;
+      for (let i = 0; i < shipLength; i++) {
+        if (
+          !(
+            randomLetter == 'g' ||
+            randomLetter == 'h' ||
+            randomLetter == 'i' ||
+            randomLetter == 'j'
+          )
+        ) {
+          letter = nextChar(letter);
+        } else {
+          letter = prevChar(letter);
+        }
+        newCoords.push(letter + randomNumber);
+      }
+    }
+```
+
+Example of testing with Jest. Full script <a href="https://github.com/cam71101/BattleShips/blob/master/src/js/functions.test.js"> here </a>.
+
+```javascript
+test('Player has missed shot', () => {
+  player.receiveAttack('a2');
+  expect(player.coords).toEqual(['a2']);
+});
+
+test('Player is hit', () => {
+  player.receiveAttack('a1', 'player1');
+  expect(player.ships.submarine.hit).toEqual(1);
+});
+
+test('Player ship is sunk', () => {
+  player.ships.submarine.hit = 3;
+  player.isSunk();
+  expect(player.ships.submarine.sunk).toEqual(true);
+});
+
+test('Player ship is not sunk', () => {
+  player.ships.submarine.hit = 2;
+  player.isSunk();
+  expect(player.ships.submarine.sunk).toEqual(false);
+});
+
+test('Place ship', () => {
+  player.clearShipPlacement();
+  player.addPlayerShipCoords('submarine', 1, 'a', 'submarine');
+  expect(player.ships.submarine.placement).toEqual(['a1', 'a2', 'a3']);
+});
+```
 
 ## Responsive Design
 

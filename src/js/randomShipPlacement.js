@@ -23,6 +23,7 @@ const RandomShipPlacement = (ships) => {
   const generateRandomLetter = () =>
     String.fromCharCode(97 + Math.floor(Math.random() * 10));
 
+
   const makeCoordinates = (shipLength) => {
     let randomNumber = generaterRandomNumber();
     let randomLetter = generateRandomLetter();
