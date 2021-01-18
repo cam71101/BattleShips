@@ -197,6 +197,7 @@ body {
   justify-content: space-evenly;
   align-content: center;
   margin-top: 5rem;
+
   &__btn {
     border: none;
     background-color: $indigo-dye;
@@ -212,7 +213,8 @@ body {
       outline: none;
     }
     &:hover {
-      color: black;
+      // color: black;
+      background-color: #8b0000;
     }
   }
   @include respond(phone) {
